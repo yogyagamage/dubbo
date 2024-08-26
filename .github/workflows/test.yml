@@ -3,10 +3,10 @@ name: Maven tests
 on:
   pull_request:
     branches:
-      - '2.18'
+      - '3.2'
   push:
     branches:
-      - '2.18'
+      - '3.2'
 
 jobs:
   build:
