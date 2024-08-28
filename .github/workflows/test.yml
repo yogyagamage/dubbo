@@ -22,7 +22,6 @@ jobs:
       - name: Run Maven tests
         run: >
           mvn -B verify -Pjacoco
-          jacoco:report
       - name: Generate JaCoCo Badge
         uses: cicirello/jacoco-badge-generator@v2
         with:
