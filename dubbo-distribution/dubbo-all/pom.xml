@@ -419,6 +419,12 @@
       <scope>compile</scope>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>org.apache.dubbo</groupId>
+      <artifactId>dubbo-jacoco</artifactId>
+      <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
 
     <!-- Transitive dependencies -->
     <dependency>
@@ -539,6 +545,7 @@
                   <include>org.apache.dubbo:dubbo-serialization-hessian2</include>
                   <include>org.apache.dubbo:dubbo-serialization-fastjson2</include>
                   <include>org.apache.dubbo:dubbo-serialization-jdk</include>
+                  <include>org.apache.dubbo:dubbo-jacoco</include>
                 </includes>
               </artifactSet>
               <transformers>
