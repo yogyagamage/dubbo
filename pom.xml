@@ -102,7 +102,7 @@
     <module>dubbo-test</module>
     <module>dubbo-native-plugin</module>
     <module>dubbo-maven-plugin</module>
-      <module>dubbo-jacoco</module>
+    <module>dubbo-jacoco</module>
   </modules>
 
   <scm>
