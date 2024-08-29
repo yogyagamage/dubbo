@@ -300,11 +300,6 @@
     <!-- serialization -->
     <dependency>
       <groupId>org.apache.dubbo</groupId>
-      <artifactId>dubbo-serialization</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.dubbo</groupId>
       <artifactId>dubbo-serialization-api</artifactId>
       <version>${project.version}</version>
     </dependency>
