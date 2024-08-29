@@ -145,23 +145,6 @@
       <version>${project.version}</version>
     </dependency>
 
-    <!-- distribution -->
-    <dependency>
-      <groupId>org.apache.dubbo</groupId>
-      <artifactId>dubbo-distribution</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.dubbo</groupId>
-      <artifactId>dubbo</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.dubbo</groupId>
-      <artifactId>dubbo-bom</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-
     <!-- filter -->
     <dependency>
       <groupId>org.apache.dubbo</groupId>
