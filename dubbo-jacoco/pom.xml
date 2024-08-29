@@ -324,12 +324,6 @@
       <version>${project.version}</version>
     </dependency>
 
-    <!-- spring-boot -->
-    <dependency>
-      <groupId>org.apache.dubbo</groupId>
-      <artifactId>dubbo-spring-boot-observability-autoconfigure</artifactId>
-      <version>${project.version}</version>
-    </dependency>
 
     <!-- test -->
     <dependency>
