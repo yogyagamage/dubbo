@@ -42,4 +42,21 @@ limitations under the License.
       <artifactId>fastjson2</artifactId>
     </dependency>
   </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${maven_jacoco_version}</version>
+        <executions>
+          <execution>
+            <id>generate-code-coverage-report</id>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
