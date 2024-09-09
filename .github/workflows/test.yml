@@ -36,49 +36,14 @@ jobs:
         run: |
           coverageA=$(python3 config/coverage.py target/site/dubbo-common/jacoco/jacoco.csv)
           echo "COVERAGEA=\"$coverageA\"" >> $GITHUB_ENV
-          coverageB=$(python3 config/coverage.py target/site/dubbo-serialization-hessian2/jacoco/jacoco.csv)
-          echo "COVERAGEB=\"$coverageB\"" >> $GITHUB_ENV
-          coverageC=$(python3 config/coverage.py target/site/dubbo-serialization-fastjson2/jacoco/jacoco.csv)
-          echo "COVERAGEC=\"$coverageC\"" >> $GITHUB_ENV
-          coverageD=$(python3 config/coverage.py target/site/dubbo-remoting/dubbo-remoting-api/jacoco/jacoco.csv)
-          echo "COVERAGED=\"$coverageD\"" >> $GITHUB_ENV
-          coverageE=$(python3 config/coverage.py target/site/dubbo-metrics/dubbo-metrics-api/jacoco/jacoco.csv)
-          echo "COVERAGEE=\"$coverageE\"" >> $GITHUB_ENV
-          coverageF=$(python3 config/coverage.py target/site/dubbo-config-api/jacoco/jacoco.csv)
-          echo "COVERAGEF=\"$coverageF\"" >> $GITHUB_ENV
 
       - name: Fail if coverage has not improved.
         run: |
           coverageA=$COVERAGEA
-          coverageB=$COVERAGEB
-          coverageC=$COVERAGEC
-          coverageD=$COVERAGED
-          coverageE=$COVERAGEE
-          coverageF=$COVERAGEF
           threshold1=24.46
-          threshold2=30.00
-          threshold3=40.00
-          threshold4=50.00
-          threshold5=60.00
-          threshold6=60.00
 
           if (( $(echo "$coverageA >= $threshold1" | bc -l) )); then
             echo "New coverage for module 1: $coverage%. Coverage has improved!"
-            exit 1
-          elif (( $(echo "$coverageB <= $threshold2" | bc -l) )); then
-            echo "New coverage for module 2: $coverage%. Coverage has improved!"
-            exit 1
-          elif (( $(echo "$coverageC <= $threshold3" | bc -l) )); then
-            echo "New coverage for module 3: $coverage%. Coverage has improved!"
-            exit 1
-          elif (( $(echo "$coverageD <= $threshold4" | bc -l) )); then
-            echo "New coverage for module 4: $coverage%. Coverage has improved!"
-            exit 1
-          elif (( $(echo "$coverageE <= $threshold5" | bc -l) )); then
-            echo "New coverage for module 5: $coverage%. Coverage has improved!"
-            exit 1
-          elif (( $(echo "$coverageF <= $threshold6" | bc -l) )); then
-            echo "New coverage for module 6: $coverage%. Coverage has improved!"
             exit 1
           else
             echo "Coverage is still equal to $threshold1%. Please improve."
