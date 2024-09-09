@@ -17,20 +17,19 @@ jobs:
           cache: maven
 
       - name: Run Maven tests
-        run: > # Running verify separately for the selected modules because it takes a long time to run all the tests.
+        run: |
           mvn clean install -DskipTests
-          cd dubbo-common
-          mvn -B verify -Pjacoco
-          cd ../dubbo-serialization-hessian2
-          mvn -B verify -Pjacoco
-          cd ../dubbo-serialization-fastjson2
-          mvn -B verify -Pjacoco
-          cd ../dubbo-remoting-api
-          mvn -B verify -Pjacoco
-          cd ../dubbo-metrics-api
-          mvn -B verify -Pjacoco
-          cd ../dubbo-config-api
-          mvn -B verify -Pjacoco
+          modules=("dubbo-common" 
+                  "dubbo-serialization-hessian2" 
+                  "dubbo-serialization-fastjson2" 
+                  "dubbo-remoting-api" 
+                  "dubbo-metrics-api" 
+                  "dubbo-config-api")
+                  
+          for module in "${modules[@]}"; do
+            echo "Running tests for $module"
+            mvn -B verify -Pjacoco -f $module/pom.xml
+          done
 
       - name: Get JaCoCo Coverage
         id: coverage
