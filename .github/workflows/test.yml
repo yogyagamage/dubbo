@@ -34,27 +34,27 @@ jobs:
       - name: Get JaCoCo Coverage
         id: coverage
         run: |
-          coverage1=$(python3 config/coverage.py target/site/dubbo-common/jacoco/jacoco.csv)
-          echo "COVERAGE1=\"$coverage1\"" >> $GITHUB_ENV
-          coverage2=$(python3 config/coverage.py target/site/dubbo-serialization-hessian2/jacoco/jacoco.csv)
-          echo "COVERAGE2=\"$coverage2\"" >> $GITHUB_ENV
-          coverage3=$(python3 config/coverage.py target/site/dubbo-serialization-fastjson2/jacoco/jacoco.csv)
-          echo "COVERAGE3=\"$coverage3\"" >> $GITHUB_ENV
-          coverage4=$(python3 config/coverage.py target/site/dubbo-remoting/dubbo-remoting-api/jacoco/jacoco.csv)
-          echo "COVERAGE4=\"$coverage4\"" >> $GITHUB_ENV
-          coverage5=$(python3 config/coverage.py target/site/dubbo-metrics/dubbo-metrics-api/jacoco/jacoco.csv)
-          echo "COVERAGE5=\"$coverage5\"" >> $GITHUB_ENV
-          coverage6=$(python3 config/coverage.py target/site/dubbo-config-api/jacoco/jacoco.csv)
-          echo "COVERAGE6=\"$coverage6\"" >> $GITHUB_ENV
+          coverageA=$(python3 config/coverage.py target/site/dubbo-common/jacoco/jacoco.csv)
+          echo "COVERAGEA=\"$coverageA\"" >> $GITHUB_ENV
+          coverageB=$(python3 config/coverage.py target/site/dubbo-serialization-hessian2/jacoco/jacoco.csv)
+          echo "COVERAGEB=\"$coverageB\"" >> $GITHUB_ENV
+          coverageC=$(python3 config/coverage.py target/site/dubbo-serialization-fastjson2/jacoco/jacoco.csv)
+          echo "COVERAGEC=\"$coverageC\"" >> $GITHUB_ENV
+          coverageD=$(python3 config/coverage.py target/site/dubbo-remoting/dubbo-remoting-api/jacoco/jacoco.csv)
+          echo "COVERAGED=\"$coverageD\"" >> $GITHUB_ENV
+          coverageE=$(python3 config/coverage.py target/site/dubbo-metrics/dubbo-metrics-api/jacoco/jacoco.csv)
+          echo "COVERAGEE=\"$coverageE\"" >> $GITHUB_ENV
+          coverageF=$(python3 config/coverage.py target/site/dubbo-config-api/jacoco/jacoco.csv)
+          echo "COVERAGEF=\"$coverageF\"" >> $GITHUB_ENV
 
       - name: Fail if coverage has not improved.
         run: |
-          coverage1=$COVERAGE1
-          coverage2=$COVERAGE2
-          coverage3=$COVERAGE3
-          coverage4=$COVERAGE4
-          coverage5=$COVERAGE5
-          coverage6=$COVERAGE6
+          coverageA=$COVERAGEA
+          coverageB=$COVERAGEB
+          coverageC=$COVERAGEC
+          coverageD=$COVERAGED
+          coverageE=$COVERAGEE
+          coverageF=$COVERAGEF
           threshold1=24.46
           threshold2=30.00
           threshold3=40.00
@@ -62,22 +62,22 @@ jobs:
           threshold5=60.00
           threshold6=60.00
 
-          if (( $(echo "$coverage1 >= $threshold1" | bc -l) )); then
+          if (( $(echo "$coverageA >= $threshold1" | bc -l) )); then
             echo "New coverage for module 1: $coverage%. Coverage has improved!"
             exit 1
-          elif (( $(echo "$coverage2 <= $threshold2" | bc -l) )); then
+          elif (( $(echo "$coverageB <= $threshold2" | bc -l) )); then
             echo "New coverage for module 2: $coverage%. Coverage has improved!"
             exit 1
-          elif (( $(echo "$coverage3 <= $threshold3" | bc -l) )); then
+          elif (( $(echo "$coverageC <= $threshold3" | bc -l) )); then
             echo "New coverage for module 3: $coverage%. Coverage has improved!"
             exit 1
-          elif (( $(echo "$coverage4 <= $threshold4" | bc -l) )); then
+          elif (( $(echo "$coverageD <= $threshold4" | bc -l) )); then
             echo "New coverage for module 4: $coverage%. Coverage has improved!"
             exit 1
-          elif (( $(echo "$coverage5 <= $threshold5" | bc -l) )); then
+          elif (( $(echo "$coverageE <= $threshold5" | bc -l) )); then
             echo "New coverage for module 5: $coverage%. Coverage has improved!"
             exit 1
-          elif (( $(echo "$coverage6 <= $threshold6" | bc -l) )); then
+          elif (( $(echo "$coverageF <= $threshold6" | bc -l) )); then
             echo "New coverage for module 6: $coverage%. Coverage has improved!"
             exit 1
           else
