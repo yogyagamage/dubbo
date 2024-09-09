@@ -20,11 +20,11 @@ jobs:
         run: |
           mvn clean install -DskipTests
           modules=("dubbo-common" 
-                  "dubbo-serialization-hessian2" 
-                  "dubbo-serialization-fastjson2" 
-                  "dubbo-remoting-api" 
-                  "dubbo-metrics-api" 
-                  "dubbo-config-api")
+                  "dubbo-serialization/dubbo-serialization-hessian2" 
+                  "dubbo-serialization/dubbo-serialization-fastjson2" 
+                  "dubbo-remoting/dubbo-remoting-api" 
+                  "dubbo-metrics/dubbo-metrics-api" 
+                  "dubbo-config/dubbo-config-api")
                   
           for module in "${modules[@]}"; do
             echo "Running tests for $module"
