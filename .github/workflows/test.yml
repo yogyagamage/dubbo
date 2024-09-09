@@ -17,24 +17,36 @@ jobs:
           cache: maven
 
       - name: Run Maven tests
-        run: >
+        run: > # Running verify separately for the selected modules because it takes a long time to run all the tests.
+          mvn clean install -DskipTests
+          cd dubbo-common
+          mvn -B verify -Pjacoco
+          cd ../dubbo-serialization-hessian2
+          mvn -B verify -Pjacoco
+          cd ../dubbo-serialization-fastjson2
+          mvn -B verify -Pjacoco
+          cd ../dubbo-remoting-api
+          mvn -B verify -Pjacoco
+          cd ../dubbo-metrics-api
+          mvn -B verify -Pjacoco
+          cd ../dubbo-config-api
           mvn -B verify -Pjacoco
 
       - name: Get JaCoCo Coverage
-        id: coverage  
+        id: coverage
         run: |
-          coverage1=$(python3 config/coverage.py target/site/dubbo-common/jacoco/jacoco.csv) 
-          echo "COVERAGE1=$coverage1" >> $GITHUB_ENV
-          coverage2=$(python3 config/coverage.py target/site/dubbo-serialization-hessian2/jacoco/jacoco.csv) 
-          echo "COVERAGE2=$coverage2" >> $GITHUB_ENV
-          coverage3=$(python3 config/coverage.py target/site/dubbo-serialization-fastjson2/jacoco/jacoco.csv) 
-          echo "COVERAGE3=$coverage3" >> $GITHUB_ENV
-          coverage4=$(python3 config/coverage.py target/site/dubbo-remoting/dubbo-remoting-api/jacoco/jacoco.csv) 
-          echo "COVERAGE4=$coverage4" >> $GITHUB_ENV
-          coverage5=$(python3 config/coverage.py target/site/dubbo-metrics/dubbo-metrics-api/jacoco/jacoco.csv) 
-          echo "COVERAGE5=$coverage5" >> $GITHUB_ENV
-          coverage6=$(python3 config/coverage.py target/site/dubbo-config-api/jacoco/jacoco.csv) 
-          echo "COVERAGE6=$coverage6" >> $GITHUB_ENV
+          coverage1=$(python3 config/coverage.py target/site/dubbo-common/jacoco/jacoco.csv)
+          echo "COVERAGE1=${coverage1}" >> $GITHUB_ENV
+          coverage2=$(python3 config/coverage.py target/site/dubbo-serialization-hessian2/jacoco/jacoco.csv)
+          echo "COVERAGE2=${coverage2}" >> $GITHUB_ENV
+          coverage3=$(python3 config/coverage.py target/site/dubbo-serialization-fastjson2/jacoco/jacoco.csv)
+          echo "COVERAGE3=${coverage3}" >> $GITHUB_ENV
+          coverage4=$(python3 config/coverage.py target/site/dubbo-remoting/dubbo-remoting-api/jacoco/jacoco.csv)
+          echo "COVERAGE4=${coverage4}" >> $GITHUB_ENV
+          coverage5=$(python3 config/coverage.py target/site/dubbo-metrics/dubbo-metrics-api/jacoco/jacoco.csv)
+          echo "COVERAGE5=${coverage5}" >> $GITHUB_ENV
+          coverage6=$(python3 config/coverage.py target/site/dubbo-config-api/jacoco/jacoco.csv)
+          echo "COVERAGE6=${coverage6}" >> $GITHUB_ENV
 
       - name: Fail if coverage has not improved.
         run: |
