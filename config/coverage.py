@@ -18,10 +18,10 @@ def computeCoverage(fileList):
                         missedBranches += int(row[5])
                         coveredBranches += int(row[6])
         except FileNotFoundError:
-            print(f"File not found {filename}")
+            print(f"File not found: {filename}")
             return (0, 0)
         except Exception as e:
-            print(f"Error processing file {filename} {str(e)}")
+            print(f"Error processing file {filename}: {str(e)}")
             return (0, 0)
     
     return (

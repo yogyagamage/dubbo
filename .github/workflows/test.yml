@@ -81,22 +81,22 @@ jobs:
           threshold6=60.00
 
           if (( $(echo "$coverage1 >= $threshold1" | bc -l) )); then
-            echo -e "New coverage for module 1 - $coverage\%. Coverage has improved!"
+            echo -e "New coverage for the module dubbo-common - $coverage\%. Coverage has improved!"
             exit 1
           elif (( $(echo "$coverage2 >= $threshold2" | bc -l) )); then
-            echo -e "New coverage for module 2 - $coverage\%. Coverage has improved!"
+            echo -e "New coverage for the module dubbo-serialization-hessian2 - $coverage\%. Coverage has improved!"
             exit 1
           elif (( $(echo "$coverage3 >= $threshold3" | bc -l) )); then
-            echo -e "New coverage for module 3 - $coverage\%. Coverage has improved!"
+            echo -e "New coverage for module dubbo-serialization-fastjson2 - $coverage\%. Coverage has improved!"
             exit 1
           elif (( $(echo "$coverage4 >= $threshold4" | bc -l) )); then
-            echo -e "New coverage for module 4 - $coverage\%. Coverage has improved!"
+            echo -e "New coverage for module dubbo-remoting-api - $coverage\%. Coverage has improved!"
             exit 1
           elif (( $(echo "$coverage5 >= $threshold5" | bc -l) )); then
-            echo -e "New coverage for module 5 - $coverage\%. Coverage has improved!"
+            echo -e "New coverage for module dubbo-metrics-api - $coverage\%. Coverage has improved!"
             exit 1
           elif (( $(echo "$coverage6 >= $threshold6" | bc -l) )); then
-            echo -e "New coverage for module 6 - $coverage\%. Coverage has improved!"
+            echo -e "New coverage for module dubbo-config-api - $coverage\%. Coverage has improved!"
             exit 1
           else
             echo "Coverage is still equal to $threshold1%. Please improve."
