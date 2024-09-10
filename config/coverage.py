@@ -19,10 +19,10 @@ def computeCoverage(fileList):
                         coveredBranches += int(row[6])
         except FileNotFoundError:
             print(f"File not found: {filename}")
-            #return (0, 0)
+            return (0, 0)
         except Exception as e:
             print(f"Error processing file {filename}: {str(e)}")
-            #return (0, 0)
+            return (0, 0)
     
     return (
         calculatePercentage(covered, missed),
@@ -39,7 +39,8 @@ def main(jacocoCsvFile):
     coverage, branchCoverage = computeCoverage([jacocoCsvFile])
     
     # Return coverage percentage to check against the threshold
-    return coverage
+    return round(coverage * 100, 2)
+
 if __name__ == "__main__":
     import sys
     jacocoCsvFile = sys.argv[1]
