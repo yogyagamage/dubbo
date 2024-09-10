@@ -75,17 +75,17 @@ jobs:
           threshold6=74.54
 
           if (( $(echo "$COVERAGE1 >= $threshold1" | bc -l) )); then
-            echo "New COVERAGE for the module dubbo-common - $COVERAGE%. Coverage is improved!"
+            echo "New COVERAGE for the module dubbo-common - $COVERAGE\%. Coverage is improved!"
           elif (( $(echo "$COVERAGE2 >= $threshold2" | bc -l) )); then
-            echo "New COVERAGE for the module dubbo-serialization-hessian2 - $COVERAGE%. Coverage is improved!"
+            echo -e "New COVERAGE for the module dubbo-serialization-hessian2 - $COVERAGE\%. Coverage is improved!"
           elif (( $(echo "$COVERAGE3 >= $threshold3" | bc -l) )); then
-            echo "New COVERAGE for module dubbo-serialization-fastjson2 - $COVERAGE%. Coverage is improved!"
+            echo -e "New COVERAGE for module dubbo-serialization-fastjson2 - $COVERAGE\%. Coverage is improved!"
           elif (( $(echo "$COVERAGE4 >= $threshold4" | bc -l) )); then
-            echo "New COVERAGE for module dubbo-remoting-api - $COVERAGE%. Coverage is improved!"
+            echo -e "New COVERAGE for module dubbo-remoting-api - $COVERAGE\%. Coverage is improved!"
           elif (( $(echo "$COVERAGE5 >= $threshold5" | bc -l) )); then
-            echo "New COVERAGE for module dubbo-metrics-api - $COVERAGE%. Coverage is improved!"
+            echo -e "New COVERAGE for module dubbo-metrics-api - $COVERAGE\%. Coverage is improved!"
           elif (( $(echo "$COVERAGE6 >= $threshold6" | bc -l) )); then
-            echo "New COVERAGE for module dubbo-config-api - $COVERAGE%. Coverage is improved!"
+            echo -e "New COVERAGE for module dubbo-config-api - $COVERAGE\%. Coverage is improved!"
           else
             echo "Coverage is not improved."
             exit 1
