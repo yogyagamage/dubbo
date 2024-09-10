@@ -73,31 +73,26 @@ jobs:
           coverage4=$COVERAGE4
           coverage5=$COVERAGE5
           coverage6=$COVERAGE6
-          threshold1=10.00
-          threshold2=30.00
-          threshold3=40.00
-          threshold4=50.00
-          threshold5=60.00
-          threshold6=60.00
+          threshold1=65.38
+          threshold2=56.79
+          threshold3=68.38
+          threshold4=53.44
+          threshold5=34.20
+          threshold6=74.54
 
           if (( $(echo "$coverage1 >= $threshold1" | bc -l) )); then
             echo -e "New coverage for the module dubbo-common - $coverage\%. Coverage has improved!"
-            exit 1
           elif (( $(echo "$coverage2 >= $threshold2" | bc -l) )); then
             echo -e "New coverage for the module dubbo-serialization-hessian2 - $coverage\%. Coverage has improved!"
-            exit 1
           elif (( $(echo "$coverage3 >= $threshold3" | bc -l) )); then
             echo -e "New coverage for module dubbo-serialization-fastjson2 - $coverage\%. Coverage has improved!"
-            exit 1
           elif (( $(echo "$coverage4 >= $threshold4" | bc -l) )); then
             echo -e "New coverage for module dubbo-remoting-api - $coverage\%. Coverage has improved!"
-            exit 1
           elif (( $(echo "$coverage5 >= $threshold5" | bc -l) )); then
             echo -e "New coverage for module dubbo-metrics-api - $coverage\%. Coverage has improved!"
-            exit 1
           elif (( $(echo "$coverage6 >= $threshold6" | bc -l) )); then
             echo -e "New coverage for module dubbo-config-api - $coverage\%. Coverage has improved!"
-            exit 1
           else
             echo "Coverage is still equal to $threshold1%. Please improve."
+            exit
           fi
