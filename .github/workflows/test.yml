@@ -32,40 +32,40 @@ jobs:
           done
 
       - name: Get JaCoCo Coverage
-        id: coverage
+        id: COVERAGE
         run: |
           {
-            echo 'COVERAGE1<<coverage1'
-            python3 config/coverage.py dubbo-common/target/site/jacoco/jacoco.csv
-            echo coverage1
+            echo 'Coverage1<<COVERAGE1'
+            python3 config/COVERAGE.py dubbo-common/target/site/jacoco/jacoco.csv
+            echo COVERAGE1
           } >> "$GITHUB_ENV"
           {
-            echo 'COVERAGE2<<coverage2'
-            python3 config/coverage.py dubbo-serialization/dubbo-serialization-hessian2/target/site/jacoco/jacoco.csv
-            echo coverage2
+            echo 'Coverage2<<COVERAGE2'
+            python3 config/COVERAGE.py dubbo-serialization/dubbo-serialization-hessian2/target/site/jacoco/jacoco.csv
+            echo COVERAGE2
           } >> "$GITHUB_ENV"
           {
-            echo 'COVERAGE3<<coverage3'
-            python3 config/coverage.py dubbo-serialization/dubbo-serialization-fastjson2/target/site/jacoco/jacoco.csv
-            echo coverage3
+            echo 'Coverage3<<COVERAGE3'
+            python3 config/COVERAGE.py dubbo-serialization/dubbo-serialization-fastjson2/target/site/jacoco/jacoco.csv
+            echo COVERAGE3
           } >> "$GITHUB_ENV"
           {
-            echo 'COVERAGE4<<coverage4'
-            python3 config/coverage.py dubbo-remoting/dubbo-remoting-api/target/site/jacoco/jacoco.csv
-            echo coverage4
+            echo 'Coverage4<<COVERAGE4'
+            python3 config/COVERAGE.py dubbo-remoting/dubbo-remoting-api/target/site/jacoco/jacoco.csv
+            echo COVERAGE4
           } >> "$GITHUB_ENV"
           {
-            echo 'COVERAGE5<<coverage5'
-            python3 config/coverage.py dubbo-metrics/dubbo-metrics-api/target/site/jacoco/jacoco.csv
-            echo coverage5
+            echo 'Coverage5<<COVERAGE5'
+            python3 config/COVERAGE.py dubbo-metrics/dubbo-metrics-api/target/site/jacoco/jacoco.csv
+            echo COVERAGE5
           } >> "$GITHUB_ENV"
           {
-            echo 'COVERAGE6<<coverage6'
-            python3 config/coverage.py dubbo-config/dubbo-config-api/target/site/jacoco/jacoco.csv
-            echo coverage6
+            echo 'Coverage6<<COVERAGE6'
+            python3 config/COVERAGE.py dubbo-config/dubbo-config-api/target/site/jacoco/jacoco.csv
+            echo COVERAGE6
           } >> "$GITHUB_ENV"
 
-      - name: Fail if coverage has not improved.
+      - name: Fail if COVERAGE has not improved.
         run: |
           threshold1=65.38
           threshold2=56.79
@@ -74,18 +74,18 @@ jobs:
           threshold5=34.20
           threshold6=74.54
 
-          if (( $(echo "$coverage1 >= $threshold1" | bc -l) )); then
-            echo -e "New coverage for the module dubbo-common - $coverage\%. Coverage has improved!"
-          elif (( $(echo "$coverage2 >= $threshold2" | bc -l) )); then
-            echo -e "New coverage for the module dubbo-serialization-hessian2 - $coverage\%. Coverage has improved!"
-          elif (( $(echo "$coverage3 >= $threshold3" | bc -l) )); then
-            echo -e "New coverage for module dubbo-serialization-fastjson2 - $coverage\%. Coverage has improved!"
-          elif (( $(echo "$coverage4 >= $threshold4" | bc -l) )); then
-            echo -e "New coverage for module dubbo-remoting-api - $coverage\%. Coverage has improved!"
-          elif (( $(echo "$coverage5 >= $threshold5" | bc -l) )); then
-            echo -e "New coverage for module dubbo-metrics-api - $coverage\%. Coverage has improved!"
-          elif (( $(echo "$coverage6 >= $threshold6" | bc -l) )); then
-            echo -e "New coverage for module dubbo-config-api - $coverage\%. Coverage has improved!"
+          if (( $(echo "$COVERAGE1 >= $threshold1" | bc -l) )); then
+            echo "New COVERAGE for the module dubbo-common - $COVERAGE%. Coverage has improved!"
+          elif (( $(echo "$COVERAGE2 >= $threshold2" | bc -l) )); then
+            echo "New COVERAGE for the module dubbo-serialization-hessian2 - $COVERAGE%. Coverage has improved!"
+          elif (( $(echo "$COVERAGE3 >= $threshold3" | bc -l) )); then
+            echo "New COVERAGE for module dubbo-serialization-fastjson2 - $COVERAGE%. Coverage has improved!"
+          elif (( $(echo "$COVERAGE4 >= $threshold4" | bc -l) )); then
+            echo "New COVERAGE for module dubbo-remoting-api - $COVERAGE%. Coverage has improved!"
+          elif (( $(echo "$COVERAGE5 >= $threshold5" | bc -l) )); then
+            echo "New COVERAGE for module dubbo-metrics-api - $COVERAGE%. Coverage has improved!"
+          elif (( $(echo "$COVERAGE6 >= $threshold6" | bc -l) )); then
+            echo "New COVERAGE for module dubbo-config-api - $COVERAGE%. Coverage has improved!"
           else
             echo "Coverage is still equal to $threshold1%. Please improve."
             exit 1
