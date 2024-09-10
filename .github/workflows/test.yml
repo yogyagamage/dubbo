@@ -88,5 +88,5 @@ jobs:
             echo -e "New coverage for module dubbo-config-api - $coverage\%. Coverage has improved!"
           else
             echo "Coverage is still equal to $threshold1%. Please improve."
-            exit
+            exit 1
           fi
