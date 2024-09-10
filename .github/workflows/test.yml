@@ -67,12 +67,6 @@ jobs:
 
       - name: Fail if coverage has not improved.
         run: |
-          coverage1=$COVERAGE1
-          coverage2=$COVERAGE2
-          coverage3=$COVERAGE3
-          coverage4=$COVERAGE4
-          coverage5=$COVERAGE5
-          coverage6=$COVERAGE6
           threshold1=65.38
           threshold2=56.79
           threshold3=68.38
