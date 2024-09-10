@@ -36,32 +36,32 @@ jobs:
         run: |
           {
             echo 'COVERAGE1<<coverage1'
-            python3 config/coverage.py dubbo-common/target/site/dubbo-common/jacoco/jacoco.csv
+            python3 config/coverage.py dubbo-common/target/site/jacoco/jacoco.csv
             echo coverage1
           } >> "$GITHUB_ENV"
           {
             echo 'COVERAGE2<<coverage2'
-            python3 config/coverage.py dubbo-serialization/dubbo-serialization-hessian2/target/site/dubbo-serialization-hessian2/jacoco/jacoco.csv
+            python3 config/coverage.py dubbo-serialization/dubbo-serialization-hessian2/target/site/jacoco/jacoco.csv
             echo coverage2
           } >> "$GITHUB_ENV"
           {
             echo 'COVERAGE3<<coverage3'
-            python3 config/coverage.py dubbo-serialization/dubbo-serialization-fastjson2/target/site/dubbo-serialization-fastjson2/jacoco/jacoco.csv
+            python3 config/coverage.py dubbo-serialization/dubbo-serialization-fastjson2/target/site/jacoco/jacoco.csv
             echo coverage3
           } >> "$GITHUB_ENV"
           {
             echo 'COVERAGE4<<coverage4'
-            python3 config/coverage.py dubbo-remoting/dubbo-remoting-api/target/site/dubbo-remoting-api/jacoco/jacoco.csv
+            python3 config/coverage.py dubbo-remoting/dubbo-remoting-api/target/site/jacoco/jacoco.csv
             echo coverage4
           } >> "$GITHUB_ENV"
           {
             echo 'COVERAGE5<<coverage5'
-            python3 config/coverage.py dubbo-metrics/dubbo-metrics-api/target/site/dubbo-metrics-api/jacoco/jacoco.csv
+            python3 config/coverage.py dubbo-metrics/dubbo-metrics-api/target/site/jacoco/jacoco.csv
             echo coverage5
           } >> "$GITHUB_ENV"
           {
             echo 'COVERAGE6<<coverage6'
-            python3 config/coverage.py dubbo-config/dubbo-config-api/target/site/dubbo-config-api/jacoco/jacoco.csv
+            python3 config/coverage.py dubbo-config/dubbo-config-api/target/site/jacoco/jacoco.csv
             echo coverage6
           } >> "$GITHUB_ENV"
 
