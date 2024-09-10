@@ -39,7 +39,7 @@ def main(jacocoCsvFile):
     coverage, branchCoverage = computeCoverage([jacocoCsvFile])
     
     # Return coverage percentage to check against the threshold
-    return coverage * 100
+    return coverage
 if __name__ == "__main__":
     import sys
     jacocoCsvFile = sys.argv[1]
