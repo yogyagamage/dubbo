@@ -36,32 +36,32 @@ jobs:
         run: |
           {
             echo 'COVERAGE1<<coverage1'
-            python3 config/coverage.py target/site/dubbo-common/jacoco/jacoco.csv
+            python3 config/coverage.py dubbo-common/target/site/dubbo-common/jacoco/jacoco.csv
             echo coverage1
           } >> "$GITHUB_ENV"
           {
             echo 'COVERAGE2<<coverage2'
-            python3 config/coverage.py target/site/dubbo-serialization-hessian2/jacoco/jacoco.csv
+            python3 config/coverage.py dubbo-serialization/dubbo-serialization-hessian2/target/site/dubbo-serialization-hessian2/jacoco/jacoco.csv
             echo coverage2
           } >> "$GITHUB_ENV"
           {
             echo 'COVERAGE3<<coverage3'
-            python3 config/coverage.py target/site/dubbo-serialization-fastjson2/jacoco/jacoco.csv
+            python3 config/coverage.py dubbo-serialization/dubbo-serialization-fastjson2/target/site/dubbo-serialization-fastjson2/jacoco/jacoco.csv
             echo coverage3
           } >> "$GITHUB_ENV"
           {
             echo 'COVERAGE4<<coverage4'
-            python3 config/coverage.py target/site/dubbo-remoting-api/jacoco/jacoco.csv
+            python3 config/coverage.py dubbo-remoting/dubbo-remoting-api/target/site/dubbo-remoting-api/jacoco/jacoco.csv
             echo coverage4
           } >> "$GITHUB_ENV"
           {
             echo 'COVERAGE5<<coverage5'
-            python3 config/coverage.py target/site/dubbo-metrics-api/jacoco/jacoco.csv
+            python3 config/coverage.py dubbo-metrics/dubbo-metrics-api/target/site/dubbo-metrics-api/jacoco/jacoco.csv
             echo coverage5
           } >> "$GITHUB_ENV"
           {
             echo 'COVERAGE6<<coverage6'
-            python3 config/coverage.py target/site/dubbo-config-api/jacoco/jacoco.csv
+            python3 config/coverage.py dubbo-config/dubbo-config-api/target/site/dubbo-config-api/jacoco/jacoco.csv
             echo coverage6
           } >> "$GITHUB_ENV"
 
@@ -80,23 +80,23 @@ jobs:
           threshold5=60.00
           threshold6=60.00
 
-          if (( $(echo "$coverage1 <= $threshold1" | bc -l) )); then
-            echo "New coverage for module 1: $coverage%. Coverage has improved!"
+          if (( $(echo "$coverage1 >= $threshold1" | bc -l) )); then
+            echo -e "New coverage for module 1 - $coverage\%. Coverage has improved!"
             exit 1
-          elif (( $(echo "$coverage2 <= $threshold2" | bc -l) )); then
-            echo "New coverage for module 2: $coverage%. Coverage has improved!"
+          elif (( $(echo "$coverage2 >= $threshold2" | bc -l) )); then
+            echo -e "New coverage for module 2 - $coverage\%. Coverage has improved!"
             exit 1
-          elif (( $(echo "$coverage3 <= $threshold3" | bc -l) )); then
-            echo "New coverage for module 3: $coverage%. Coverage has improved!"
+          elif (( $(echo "$coverage3 >= $threshold3" | bc -l) )); then
+            echo -e "New coverage for module 3 - $coverage\%. Coverage has improved!"
             exit 1
-          elif (( $(echo "$coverage4 <= $threshold4" | bc -l) )); then
-            echo "New coverage for module 4: $coverage%. Coverage has improved!"
+          elif (( $(echo "$coverage4 >= $threshold4" | bc -l) )); then
+            echo -e "New coverage for module 4 - $coverage\%. Coverage has improved!"
             exit 1
-          elif (( $(echo "$coverage5 <= $threshold5" | bc -l) )); then
-            echo "New coverage for module 5: $coverage%. Coverage has improved!"
+          elif (( $(echo "$coverage5 >= $threshold5" | bc -l) )); then
+            echo -e "New coverage for module 5 - $coverage\%. Coverage has improved!"
             exit 1
-          elif (( $(echo "$coverage6 <= $threshold6" | bc -l) )); then
-            echo "New coverage for module 6: $coverage%. Coverage has improved!"
+          elif (( $(echo "$coverage6 >= $threshold6" | bc -l) )); then
+            echo -e "New coverage for module 6 - $coverage\%. Coverage has improved!"
             exit 1
           else
             echo "Coverage is still equal to $threshold1%. Please improve."
