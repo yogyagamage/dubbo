@@ -57,7 +57,7 @@ jobs:
           threshold6=74.54
 
           if (( $(echo "$COVERAGE1 >= $threshold1" | bc -l) )); then
-            echo "New coverage for the module dubbo-common - $COVERAGE1%. Coverage is improved!""
+            echo "New coverage for the module dubbo-common - $COVERAGE1%. Coverage is improved!"
           elif (( $(echo "$COVERAGE2 >= $threshold2" | bc -l) )); then
             echo "New coverage for the module dubbo-serialization-hessian2 - $COVERAGE2%. Coverage is improved!"
           elif (( $(echo "$COVERAGE3 >= $threshold3" | bc -l) )); then
