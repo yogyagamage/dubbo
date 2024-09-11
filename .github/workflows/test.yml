@@ -65,7 +65,7 @@ jobs:
             echo COVERAGE6
           } >> "$GITHUB_ENV"
 
-      - name: Fail if COVERAGE has not improved.
+      - name: Fail if coverage has not improved.
         run: |
           threshold1=65.38
           threshold2=56.79
@@ -75,17 +75,17 @@ jobs:
           threshold6=74.54
 
           if (( $(echo "$COVERAGE1 >= $threshold1" | bc -l) )); then
-            echo -e "New COVERAGE for the module dubbo-common - $COVERAGE\%. Coverage is improved!"
+            echo -e "New coverage for the module dubbo-common - $COVERAGE1\%. Coverage is improved!"
           elif (( $(echo "$COVERAGE2 >= $threshold2" | bc -l) )); then
-            echo -e "New COVERAGE for the module dubbo-serialization-hessian2 - $COVERAGE\%. Coverage is improved!"
+            echo -e "New coverage for the module dubbo-serialization-hessian2 - $COVERAGE2\%. Coverage is improved!"
           elif (( $(echo "$COVERAGE3 >= $threshold3" | bc -l) )); then
-            echo -e "New COVERAGE for module dubbo-serialization-fastjson2 - $COVERAGE\%. Coverage is improved!"
+            echo -e "New coverage for module dubbo-serialization-fastjson2 - $COVERAGE3\%. Coverage is improved!"
           elif (( $(echo "$COVERAGE4 >= $threshold4" | bc -l) )); then
-            echo -e "New COVERAGE for module dubbo-remoting-api - $COVERAGE\%. Coverage is improved!"
+            echo -e "New coverage for module dubbo-remoting-api - $COVERAGE4\%. Coverage is improved!"
           elif (( $(echo "$COVERAGE5 >= $threshold5" | bc -l) )); then
-            echo -e "New COVERAGE for module dubbo-metrics-api - $COVERAGE\%. Coverage is improved!"
+            echo -e "New coverage for module dubbo-metrics-api - $COVERAGE5\%. Coverage is improved!"
           elif (( $(echo "$COVERAGE6 >= $threshold6" | bc -l) )); then
-            echo -e "New COVERAGE for module dubbo-config-api - $COVERAGE\%. Coverage is improved!"
+            echo -e "New coverage for module dubbo-config-api - $COVERAGE6\%. Coverage is improved!"
           else
             echo "Coverage is not improved."
             exit 1
