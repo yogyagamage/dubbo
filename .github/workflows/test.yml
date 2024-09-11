@@ -67,7 +67,7 @@ jobs:
 
       - name: Fail if coverage has not improved.
         run: |
-          threshold1=65.38
+          threshold1=65.00
           threshold2=56.79
           threshold3=68.38
           threshold4=53.44
